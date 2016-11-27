@@ -35,7 +35,8 @@ Plugin 'scrooloose/nerdtree'
 map <F3> :NERDTreeToggle<CR>
 " 如果打开的文件除了NERDTree没有其他文件时，自动关闭
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") &&b:NERDTreeType == "primary") | q | endif
-"autocmd vimenter * NERDTree
+" autocmd BufNewFile,BufRead *.xml source ~/.vim/ftplugin/xml.vim
+autocmd vimenter *.go,*.py,*.cpp,*.h,*.c NERDTree
 
 " ctrlp
 set wildignore+=*/tmp/*,*/bin/*,*.so,*.swp,*.zip
@@ -119,3 +120,7 @@ endfunction
                                                                         
 "colorscheme molokai
 let g:molokai_original = 1
+
+nmap <F8> :TagbarToggle<CR>
+let g:tagbar_ctags_bin = "/usr/local/Cellar/ctags/5.8_1/bin/ctags"
+autocmd VimEnter * nested :call tagbar#autoopen(1)
