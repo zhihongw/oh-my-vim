@@ -103,6 +103,13 @@ let g:tagbar_type_go = {
     \ 'ctagsargs' : '-sort -silent'
 \ }
 
+
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+let g:UltiSnipsExpandTrigger="<c-j>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+
 call vundle#end()
 filetype plugin indent on
                                                                         
@@ -117,7 +124,8 @@ function RunPython()
   let &makeprg = mp
   let &errorformat = ef
 endfunction
-                                                                        
+
+Bundle 'tomasr/molokai'
 "colorscheme molokai
 let g:molokai_original = 1
 
